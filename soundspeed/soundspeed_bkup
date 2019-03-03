@@ -1,0 +1,60 @@
+#include <Ultrasonic.h>
+
+
+  const int Nreads = 150;
+
+// defines pins numbers
+  const int trigPin = 9;
+  const int echoPin = 10;
+  int sensorPin = 0;
+  
+// defines variables
+  float temperatureC, soundspeed;
+  
+
+  void setup() {
+    pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
+    pinMode(echoPin, INPUT); // Sets the echoPin as an Input
+    Serial.begin(9600); // Starts the serial communication
+  }
+
+  void loop() {
+    float soundtime = 0;
+    float TMPread = 0;
+
+    for (int i = 0; i < Nreads; i++) {
+
+      // Clears the trigPin
+      digitalWrite(trigPin, LOW);
+      delayMicroseconds(5);
+      // Sets the trigPin on HIGH state for 10 micro seconds
+      digitalWrite(trigPin, HIGH);
+      delayMicroseconds(10);
+      digitalWrite(trigPin, LOW);
+
+      // Reads the echoPin, returns the sound wave travel time in microseconds
+      soundtime += pulseIn(echoPin, HIGH);
+      TMPread += analogRead(sensorPin);
+      delay(2);
+    }
+    float ave_soundtime = soundtime / Nreads;
+    float ave_TMPread = TMPread / Nreads;
+
+    
+    
+    // Returns the sound speed in m/s (0.19 is the sensor to internal box wall distance in m!!)
+    soundspeed = 2*0.19/(ave_soundtime /1000000); // sound speed in m/s
+
+ 
+    // converting that reading to voltage, for 3.3v arduino use 3.3
+    float voltage = ave_TMPread * 5./ 1023;
+    
+    temperatureC = (voltage - 0.5) * 100 ;  //converting from 10 mv per degree wit 500 mV offset
+                                                  //to degrees ((voltage - 500mV) times 100)
+
+    
+    Serial.print(temperatureC); 
+    Serial.print(" ");
+    Serial.println(soundspeed);
+   // delay(100);
+  }
