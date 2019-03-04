@@ -9,9 +9,8 @@ temperatureC = []
 tempScale = numpy.arange(-10,150,0.5)
 soundspeed = []
 thl_soundspeed = []
-## Here you have to looking for which serial is used by arduino by typing:
+## Here you have to looking for which serial is used by Arduino by typing:
 ## ls /dev/serial/by-id | grep arduino
-## ser = serial.Serial("/dev/ttyAMC0",9600)
 ser = serial.Serial('/dev/serial/by-id/usb-Arduino__www.arduino.cc__0043_55739323637351C0D1C2-if00', 9600)
 
 plt.ion()
