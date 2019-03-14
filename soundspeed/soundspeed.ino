@@ -1,25 +1,23 @@
 #include <Ultrasonic.h>
 
 
-  const int Nreads = 1000;
-
 // defines pins numbers
   const int trigPin = 9;
   const int echoPin = 10;
   int sensorPin = 0;
 
-  int index = 0;
-  float soundtime = 0;
-  float TMPread = 0;
+// defines constants
+  const int Nreads = 1000;
   
 // defines variables
   float temperatureC, soundspeed;
-  
+  int index = 0;
+  float soundtime, TMPread;
 
   void setup() {
-    pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
-    pinMode(echoPin, INPUT); // Sets the echoPin as an Input
-    Serial.begin(9600); // Starts the serial communication
+    pinMode(trigPin, OUTPUT); 
+    pinMode(echoPin, INPUT);  
+    Serial.begin(9600);       
   }
 
   void loop() {
@@ -42,7 +40,7 @@
         
         float voltage = ave_TMPread * 5./ 1023;
 
-        soundspeed = 2. * 0.18 / (ave_soundtime / 1000000); 
+        soundspeed = 2. * 0.19 / (ave_soundtime / 1000000); 
         temperatureC = (voltage - 0.5) * 100 ; 
          
         Serial.print(temperatureC); 
