@@ -25,8 +25,14 @@ For this work we use:
 
 
 
-What we have here
------------------
-I put here the arduino sketch, the python script to perform data visualization and a `requirements.txt` file to install all the necessary python libraries.
+What we have here?
+------------------
+I put here the arduino sketch (inside the `soudspeed` folder), the python script to perform data visualization and a `requirements.txt` file to install all the necessary python libraries.
+
+
+How it works?
+-------------
+We measure the sound speed with the ultrasonic sensor with:
+![equation](http://www.sciweavers.org/tex2img.php?eq=v%20%20%5Capprox%20%20%5Cfrac%7B2d%7D%7Bt_s%7D%20&bc=White&fc=Black&im=jpg&fs=18&ff=mathpazo&edit=0)
 
 
