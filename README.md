@@ -12,7 +12,7 @@ This work aims to measure the sound speed in air as a temperature function. In p
 We measure the sound speed with an ultrasonic sensor, deriving it by the time that sound waves takes to cover a certain distance. This due to a box in which me put the sensor, so we can measure both sound speed and temperature of a quite definite portion of air.
 
 
-What we needs?
+What do you need?
 --------------
 For this work we use:
 * Arduino Uno Rev.3
@@ -24,7 +24,7 @@ For this work we use:
 * Hair dryer
 
 
-What we have here?
+What do we have here?
 ------------------
 I put here the arduino sketch (inside the `soudspeed` folder), the python script to perform data visualization and a `requirements.txt` file to install all the necessary python libraries.
 
